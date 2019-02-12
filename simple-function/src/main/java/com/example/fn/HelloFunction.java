@@ -2,10 +2,10 @@ package com.example.fn;
 
 public class HelloFunction {
 
-    public String handleRequest(String input) {
-        String name = (input == null || input.isEmpty()) ? "world"  : input;
+    public Response handleRequest(Request input) {
+        String name = (input.getName() == null || input.getName().isEmpty()) ? "world"  : input.getName();
 
-        return "Hello, " + name + "!";
+        return new Response("Hello, " + name + "!");
     }
 
 }

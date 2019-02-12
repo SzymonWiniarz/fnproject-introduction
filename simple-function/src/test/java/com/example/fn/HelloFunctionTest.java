@@ -11,12 +11,21 @@ public class HelloFunctionTest {
     public final FnTestingRule testing = FnTestingRule.createDefault();
 
     @Test
-    public void shouldReturnGreeting() {
-        testing.givenEvent().enqueue();
+    public void shouldGreetTheWorldWhenNoNamePassed() {
+        testing.givenEvent().withBody("{}").enqueue();
         testing.thenRun(HelloFunction.class, "handleRequest");
 
         FnResult result = testing.getOnlyResult();
-        assertEquals("Hello, world!", result.getBodyAsString());
+        assertEquals("{\"greeting\":\"Hello, world!\"}", result.getBodyAsString());
+    }
+
+    @Test
+    public void shouldGreetThePersonWhenNamePassed() {
+        testing.givenEvent().withBody("{\"name\":\"Janusz\"}").enqueue();
+        testing.thenRun(HelloFunction.class, "handleRequest");
+
+        FnResult result = testing.getOnlyResult();
+        assertEquals("{\"greeting\":\"Hello, Janusz!\"}", result.getBodyAsString());
     }
 
 }
