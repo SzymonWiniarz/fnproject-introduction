@@ -1,0 +1,12 @@
+schema_version: 20180708
+name: multiply-function
+version: 0.0.1
+runtime: java8
+build_image: fnproject/fn-java-fdk-build:1.0.85
+run_image: fnproject/fn-java-fdk:1.0.85
+cmd: com.example.fn.HelloFunction::handleRequest
+format: http
+triggers:
+- name: multiply-function-trigger
+  type: http
+  source: /multiply-function-trigger
