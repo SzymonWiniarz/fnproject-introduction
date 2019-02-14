@@ -7,8 +7,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fdk.version>1.0.85</fdk.version>
     </properties>
-    <groupId>com.example.fn</groupId>
-    <artifactId>hello</artifactId>
+    <parent>
+        <groupId>com.simcode.fnproject</groupId>
+        <artifactId>fn-calculator-app</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <artifactId>divide-function</artifactId>
     <version>1.0.0</version>
 
     <repositories>
@@ -21,6 +25,11 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
+        </repository>
+        <repository>
+            <id>io.cloudrepo</id>
+            <url>https://simcode.mycloudrepo.io/public/repositories/myrepo</url>
+            <releases/>
         </repository>
     </repositories>
 
@@ -43,10 +52,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <groupId>com.simcode.fnproject</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
@@ -59,6 +67,14 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
         </plugins>
