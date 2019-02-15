@@ -45,4 +45,20 @@ public class CalculatorTest {
 
     calculator.divide(22, 0);
   }
+
+  @Test
+  public void shouldReturn0WhenGetFibonacciFor0() {
+    assertEquals(0, calculator.getNthFibonacciNumber(0));
+  }
+
+  @Test
+  public void shouldReturn1WhenGetFibonacciFor1() {
+    assertEquals(1, calculator.getNthFibonacciNumber(1));
+  }
+
+  @Test
+  public void shouldReturnProperResultWhenGetFibonacciForNumberGreaterThan1() {
+    assertEquals(13, calculator.getNthFibonacciNumber(7));
+  }
+
 }

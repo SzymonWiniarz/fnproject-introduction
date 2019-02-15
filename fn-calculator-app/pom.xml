@@ -13,6 +13,7 @@
         <module>subtract-function</module>
         <module>multiply-function</module>
         <module>divide-function</module>
+        <module>fibonacci-function</module>
         <module>common</module>
     </modules>
 

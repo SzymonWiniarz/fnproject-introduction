@@ -44,4 +44,11 @@ public class CalculatorController {
     return new Response(result);
   }
 
+  @GetMapping("fibonacci")
+  public Response fibonacci(int n) {
+    long result = calculator.getNthFibonacciNumber(n);
+
+    return new Response(result);
+  }
+
 }

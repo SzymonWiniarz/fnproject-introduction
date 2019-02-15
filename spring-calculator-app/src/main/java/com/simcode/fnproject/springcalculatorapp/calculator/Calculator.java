@@ -25,4 +25,12 @@ public class Calculator {
     return (double) a / b;
   }
 
+  public int getNthFibonacciNumber(int n) {
+    if (n == 0 || n == 1) {
+      return n;
+    }
+
+    return getNthFibonacciNumber(n - 2) + getNthFibonacciNumber(n - 1);
+  }
+
 }
